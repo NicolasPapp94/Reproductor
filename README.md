@@ -1,2 +1,1 @@
-
-#Reproductor de botones en react
+Reproductor de botones en react
