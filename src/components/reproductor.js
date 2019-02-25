@@ -8,31 +8,31 @@ firebase.initializeApp(config);
 class Reproductor extends Component{
 
 	componentWillMount(){
-			const ReproName = firebase.database().ref().child('objeto');
-	   		ReproName.on('value', (snapshot)=>{
-	      		Reproduciendo = snapshot.val();	      
-      			if (Reproduciendo.Repro === false){
-				var audio = document.getElementById("Reproductor");	
-				audio.src = Reproduciendo.Ultimo;
-				audio.volume=1;
-			   	audio.load();
-			    	audio.play();
-			    	audio.onended = function() {
-		    	setTimeout(function(){ 
-		    		ReproName.set(
+		const ReproName = firebase.database().ref().child('objeto');
+		ReproName.on('value', (snapshot)=>{
+		Reproduciendo = snapshot.val();	      
+		if (Reproduciendo.Repro === false){
+			var audio = document.getElementById("Reproductor");	
+			audio.src = Reproduciendo.Ultimo;
+			audio.volume=1;
+			audio.load();
+			audio.play();
+			audio.onended = function() {
+			setTimeout(function(){ 
+				ReproName.set(
 				    {
-			        	Repro : true,
-			        	Ultimo : Reproduciendo.Ultimo,
-			        	UltimaRepro:  new Date().toLocaleTimeString()
+					Repro : true,
+					Ultimo : Reproduciendo.Ultimo,
+					UltimaRepro:  new Date().toLocaleTimeString()
 				    }
-			      	).then(()=>{
-			      	}).catch((error) => {
-			    	    console.log(error);
-				 	});
-		    	}, 3000);		
-				};
-			}
-	    }); 
+				).then(()=>{
+				}).catch((error) => {
+				    console.log(error);
+				});
+			}, 3000);		
+			};
+		}	
+	    	}); 
   	}
 
 
