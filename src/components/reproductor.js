@@ -10,14 +10,14 @@ class Reproductor extends Component{
 	componentWillMount(){
 			const ReproName = firebase.database().ref().child('objeto');
 	   		ReproName.on('value', (snapshot)=>{
-	      	Reproduciendo = snapshot.val();	      
-      		if (Reproduciendo.Repro === false){
+	      		Reproduciendo = snapshot.val();	      
+      			if (Reproduciendo.Repro === false){
 				var audio = document.getElementById("Reproductor");	
 				audio.src = Reproduciendo.Ultimo;
 				audio.volume=1;
-			    audio.load();
-			    audio.play();
-			    audio.onended = function() {
+			   	audio.load();
+			    	audio.play();
+			    	audio.onended = function() {
 		    	setTimeout(function(){ 
 		    		ReproName.set(
 				    {
