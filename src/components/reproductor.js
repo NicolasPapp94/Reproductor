@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 var Reproduciendo;
 const config = {
-    apiKey: 'AIzaSyCcqguc1RuEa46XNSwePVm2O-dHyxKzs-k',
-    authDomain: 'botonera-fccfc.firebaseapp.com',
-    databaseURL: 'https://botonera-fccfc.firebaseio.com',
-    projectId: 'botonera-fccfc',
-    storageBucket: 'botonera-fccfc.appspot.com',
-    messagingSenderId: '465060720795'
+    AQUI VAN TUS CONFIGURACIONES DE FIREBASE
 };
 firebase.initializeApp(config);
 class Reproductor extends Component{
